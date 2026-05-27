@@ -3,19 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Atmosphere - Premium Weather Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="weatherForm">
-        <input type="text" class="cityInput" placeholder="Enter city">
-        <button type="submit">Get Weather</button>
-    </form>
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="app-brand">
+                <span class="material-symbols-rounded brand-icon">partly_cloudy_day</span>
+                <h1>Atmosphere</h1>
+            </div>
+            
+            <!-- Temperature Unit Toggle -->
+            <div class="unit-toggle" id="unitToggle">
+                <span class="toggle-btn active" id="btnCelsius">°C</span>
+                <span class="toggle-btn" id="btnFahrenheit">°F</span>
+            </div>
+        </header>
 
-    <div class="card">
+        <!-- Search Bar Area -->
+        <section class="search-section">
+            <form class="weatherForm" autocomplete="off">
+                <span class="material-symbols-rounded search-icon">search</span>
+                <input type="text" class="cityInput" id="cityInput" placeholder="Search for a city (e.g., London, Tokyo)..." required>
+                <button type="button" class="clear-btn" id="clearSearchBtn">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+                <button type="submit" class="search-submit-btn">
+                    <span>Search</span>
+                </button>
+            </form>
+            
+            <!-- Search History Dropdown -->
+            <div class="history-dropdown" id="historyDropdown">
+                <div class="history-header">
+                    <span>RECENT SEARCHES</span>
+                    <button type="button" class="clear-history-btn" id="clearHistoryBtn">Clear All</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- Dynamic history items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Panel -->
+        <div class="errorDisplay glass-panel" id="errorDisplay">
+            <span class="material-symbols-rounded error-icon">error</span>
+            <div class="error-text-container">
+                <div class="error-title">Oops! Something went wrong</div>
+                <div class="error-message" id="errorMessage">Could not fetch weather data. Please try again.</div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner State -->
+        <div class="loading-container glass-panel" id="loadingContainer">
+            <div class="loading-spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Welcome Panel (Default view) -->
+        <div class="welcome-card glass-panel" id="welcomeCard">
+            <span class="material-symbols-rounded welcome-icon">thermostat</span>
+            <h2 class="welcome-title">Weather Dashboard</h2>
+            <p class="welcome-desc">Enter a city above or select a recent search to view real-time weather analytics, hourly insights, and 7-day forecasts.</p>
+        </div>
+
+        <!-- Weather Dashboard Panel (Dynamic) -->
+        <main class="dashboard" id="weatherDashboard">
+            
+            <!-- Left Side: Current conditions & Hourly Timeline -->
+            <div class="dashboard-left">
+                
+                <!-- Current Weather Card -->
+                <section class="card-main glass-panel">
+                    <div class="location-info">
+                        <h2 class="cityDisplay" id="cityDisplay">City Name</h2>
+                        <div class="dateDisplay" id="dateDisplay">Wednesday, May 27</div>
+                    </div>
+                    
+                    <div class="weather-hero">
+                        <div class="weatherEmoji" id="weatherEmoji">☀️</div>
+                        <div class="temp-container">
+                            <div class="tempDisplay" id="tempDisplay">24°C</div>
+                            <div class="descDisplay" id="descDisplay">Clear sky</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Secondary Metrics Grid -->
+                    <div class="details-grid">
+                        <div class="detail-cell">
+                            <span class="material-symbols-rounded detail-cell-icon">device_thermostat</span>
+                            <div class="detail-cell-value" id="feelsLikeDisplay">25°C</div>
+                            <div class="detail-cell-label">Feels Like</div>
+                        </div>
+                        <div class="detail-cell">
+                            <span class="material-symbols-rounded detail-cell-icon">humidity_mid</span>
+                            <div class="detail-cell-value" id="humidityDisplay">64%</div>
+                            <div class="detail-cell-label">Humidity</div>
+                        </div>
+                        <div class="detail-cell">
+                            <span class="material-symbols-rounded detail-cell-icon">air</span>
+                            <div class="detail-cell-value" id="windDisplay">12 km/h</div>
+                            <div class="detail-cell-label">Wind Speed</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hourly Forecast -->
+                <section class="card-hourly glass-panel">
+                    <h3 class="section-title">
+                        <span class="material-symbols-rounded">schedule</span>
+                        Hourly Forecast <span>(Next 24h)</span>
+                    </h3>
+                    <div class="hourly-timeline" id="hourlyTimeline">
+                        <!-- Dynamic hourly cards -->
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- Right Side: 7-Day Forecast -->
+            <div class="dashboard-right">
+                
+                <!-- 7-Day Forecast Card -->
+                <section class="card-daily glass-panel">
+                    <h3 class="section-title">
+                        <span class="material-symbols-rounded">calendar_month</span>
+                        7-Day Forecast
+                    </h3>
+                    <div class="daily-list" id="dailyList">
+                        <!-- Dynamic 7-day items -->
+                    </div>
+                </section>
+                
+            </div>
+            
+        </main>
+
     </div>
 
     <script src="main.js"></script>
-    
 </body>
 </html>
