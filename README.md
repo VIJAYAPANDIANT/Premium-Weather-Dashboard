@@ -8,10 +8,6 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 </p>
 
-<p align="center">
-  <img src="preview.png" alt="Atmosphere Weather Dashboard Preview" width="100%" />
-</p>
-
 ---
 
 **Atmosphere** is a state-of-the-art weather forecasting dashboard that provides real-time atmospheric data, hourly predictions, and 7-day insights in a gorgeous, glassmorphic layout. The application utilizes the Open-Meteo APIs for live, keyless, and accurate updates.
