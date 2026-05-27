@@ -64,11 +64,11 @@ The project utilizes open, free, and robust endpoints from [Open-Meteo](https://
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/VIJAYAAPANDIANT/Weather-App.git
+    git clone https://github.com/VIJAYAPANDIANT/Premium-Weather-Dashboard.git
     ```
 2.  **Navigate to the directory:**
     ```bash
-    cd Weather-App
+    cd Premium-Weather-Dashboard
     ```
 3.  **Run the application:**
     *   Simply double-click `index.html` to open it in your browser.
